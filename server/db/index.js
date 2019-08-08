@@ -6,15 +6,21 @@ var mysql = require('mysql');
 
 var connect = mysql.createConnection({
   host: "localhost",
-  user: "root",
-  // password: "student",
+  user: "student",
+  password: "student",
   database: "chat"
 });
 
 connect.connect(function(err){
   if (err){
-    console.log('ERROR: ', err);
+    console.error('ERROR');
   }
+  connect.query("SELECT username, message FROM messages", function(err, result, fields) {
+    if (err) {
+      console.error('ERROR');
+    }
+    console.log(fields);
+  })
   console.log('CONNECTED!');
 });
 

@@ -7,7 +7,7 @@ CREATE TABLE messages (
   messageID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   username TEXT NOT NULL,
   FOREIGN KEY(messages.username) REFERENCES dogs(dogID),
-  texts TEXT NOT NULL
+  message TEXT NOT NULL
 );
 
 /* Create other tables and define schemas for them here! */
