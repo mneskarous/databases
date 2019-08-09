@@ -5,23 +5,11 @@ var mysql = require('mysql');
 // and to the database "chat".
 
 var connect = mysql.createConnection({
-  host: "localhost",
-  user: "student",
-  password: "student",
+  user: "root",
+  password: '',
   database: "chat"
 });
 
-connect.connect(function(err){
-  if (err){
-    console.error('ERROR');
-  }
-  connect.query("SELECT username, message FROM messages", function(err, result, fields) {
-    if (err) {
-      console.error('ERROR');
-    }
-    console.log(fields);
-  })
-  console.log('CONNECTED!');
-});
+connect.connect();
 
-module.exports.connect = connect;
+module.exports = connect;
